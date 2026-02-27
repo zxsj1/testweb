@@ -1,0 +1,625 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Ma Shan Zheng', cursive, 'Microsoft YaHei', sans-serif;
+}
+
+.a {
+    width: 500px;
+    height: 650px;
+    background: linear-gradient(135deg, #faf8f3 0%, #f5f1e8 100%);
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.a1 {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 4px;
+}
+
+.a2 {
+    position: absolute;
+    top: 60px;
+    left: 50px;
+    right: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    opacity: 0.5;
+}
+
+.a3 {
+    padding: 80px 60px 60px;
+    height: calc(100% - 140px);
+    position: relative;
+    z-index: 2;
+}
+
+.a3A {
+    font-size: 18px;
+    color: #8b4513;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.a3B {
+    font-size: 16px;
+    color: #2f4f4f;
+    line-height: 2;
+    margin-bottom: 40px;
+}
+
+.a3C {
+    text-align: center;
+    font-size: 14px;
+    color: #8b4513;
+    margin-top: 40px;
+}
+
+.b {
+    position: absolute;
+    width: 500px;
+    height: auto;
+}
+
+.b1, .b2, .b3 ,.b4,.b5,.b6{
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.b1 {
+    margin-top: 30px;
+    margin-left: 33px;
+    animation: wenzi-width 2s steps(30, end) forwards;
+}
+
+.b2, .b3 ,.b4,.b5,.b6{
+    width: 0;  
+    margin-right: auto;
+    margin-left: auto;
+    color: red;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.b2 {
+    animation: wenzi-width-200 2s steps(30, end) forwards;
+    animation-delay: 1s;
+}
+
+.b3 {
+    animation: wenzi-width-200 2s steps(30, end) forwards;
+    animation-delay: 2s;
+}
+
+.b4 {
+    animation: wenzi-width-200 2s steps(30, end) forwards;
+    animation-delay: 3s;
+}
+
+.b5 {
+    animation: wenzi-width-200 2s steps(30, end) forwards;
+    animation-delay: 4s;
+}
+
+.b6 {
+    animation: wenzi-width-200 2s steps(30, end) forwards;
+    animation-delay: 1s;
+}
+
+.tp1 {
+    position: absolute;
+    left: 50px;
+    top: 630px;
+}
+
+.tp3 {
+    position: absolute;
+    left: 650px;
+    top: 460px;
+    z-index: 9999;
+}
+
+.yiny {
+    position: absolute;
+    width: 400px;
+    height: 50px;
+    top: 850px;
+    left: 660px;
+}
+
+.tp2 {
+    position: absolute;
+    left: 1270px;
+    top: 630px;
+}
+
+.xl,.sl {
+    position:absolute;
+    width: 100px;
+    height: 0;
+    top: 200px;
+    background-color: red;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.HL {
+    width: 200px; 
+    position: absolute;
+    font-size: 40px;
+    color: black;
+    top: 12px;
+    left: 0; 
+    right: auto; 
+    text-align: center; 
+}
+.SL, .XL {
+    position: absolute;
+    writing-mode: vertical-rl;
+    font-size: 40px;
+    color: black;
+    top: 32px;
+    right: 30px;
+    letter-spacing: 34px;
+}
+.sl{
+    left: 450px;
+    animation: duilian 2s steps(70, end) forwards;
+    animation-delay: 3.5s;
+}
+
+.xl{
+    left: 1140px;
+    animation: duilian 2s steps(70, end) forwards;
+    animation-delay: 3.5s;
+}
+
+.hl {
+    position: absolute;
+    background-color: red;
+    border-radius: 15px;
+    width: 0;
+    height: 70px;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    animation: hl 1.5s steps(70, end) forwards;
+    animation-delay: 3s;
+}
+
+/* 全屏弹幕样式 */
+.danmu-stage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+    padding: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.danmu-scroller {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    overflow: hidden;
+}
+
+.danmu-line {
+    width: 100%;
+    height: 45px;
+    line-height: 32px;
+    position: absolute;
+    white-space: nowrap;
+    overflow: hidden;
+    background: transparent;
+}
+
+.danmu-item {
+    display: inline-block;
+    padding: 4px 16px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #FFD966;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid #000000;
+    border-radius: 30px;
+    white-space: nowrap;
+    line-height: 1.2;
+    box-sizing: border-box;
+    animation-name: fly;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* 全屏飞行动画 */
+@keyframes fly {
+    0% {
+        transform: translateX(100vw);
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-300px);
+        opacity: 0;
+    }
+}
+
+/* 弹幕行垂直位置 */
+.danmu-line-1  { top: 3%; }
+.danmu-line-2  { top: 6%; }
+.danmu-line-3  { top: 9%; }
+.danmu-line-4  { top: 12%; }
+.danmu-line-5  { top: 15%; }
+.danmu-line-6  { top: 18%; }
+.danmu-line-7  { top: 21%; }
+.danmu-line-8  { top: 24%; }
+.danmu-line-9  { top: 27%; }
+.danmu-line-10 { top: 30%; }
+.danmu-line-11 { top: 33%; }
+.danmu-line-12 { top: 36%; }
+.danmu-line-13 { top: 39%; }
+.danmu-line-14 { top: 42%; }
+.danmu-line-15 { top: 45%; }
+.danmu-line-16 { top: 48%; }
+.danmu-line-17 { top: 51%; }
+.danmu-line-18 { top: 54%; }
+.danmu-line-19 { top: 57%; }
+.danmu-line-20 { top: 60%; }
+.danmu-line-21 { top: 63%; }
+.danmu-line-22 { top: 66%; }
+.danmu-line-23 { top: 69%; }
+.danmu-line-24 { top: 72%; }
+.danmu-line-25 { top: 75%; }
+.danmu-line-26 { top: 78%; }
+.danmu-line-27 { top: 81%; }
+.danmu-line-28 { top: 84%; }
+.danmu-line-29 { top: 87%; }
+
+/* 弹幕动画时长和延迟 */
+.danmu-line-1 .danmu-item {
+    animation-duration: 12s;
+    animation-delay: -2s;
+}
+
+.danmu-line-2 .danmu-item {
+    animation-duration: 10s;
+    animation-delay: -4s;
+}
+
+.danmu-line-3 .danmu-item {
+    animation-duration: 14s;
+    animation-delay: -1s;
+}
+
+.danmu-line-4 .danmu-item {
+    animation-duration: 11s;
+    animation-delay: -7s;
+}
+
+.danmu-line-5 .danmu-item {
+    animation-duration: 13s;
+    animation-delay: -3s;
+}
+
+.danmu-line-6 .danmu-item {
+    animation-duration: 9s;
+    animation-delay: -5s;
+}
+
+.danmu-line-7 .danmu-item {
+    animation-duration: 15s;
+    animation-delay: -2s;
+}
+
+.danmu-line-8 .danmu-item {
+    animation-duration: 11s;
+    animation-delay: -8s;
+}
+
+.danmu-line-9 .danmu-item {
+    animation-duration: 8s;
+    animation-delay: -6s;
+}
+
+.danmu-line-10 .danmu-item {
+    animation-duration: 16s;
+    animation-delay: -4s;
+}
+
+.danmu-line-11 .danmu-item {
+    animation-duration: 13s;
+    animation-delay: -9s;
+}
+
+.danmu-line-12 .danmu-item {
+    animation-duration: 14s;
+    animation-delay: -2s;
+}
+
+.danmu-line-13 .danmu-item {
+    animation-duration: 11s;
+    animation-delay: -5s;
+}
+
+.danmu-line-14 .danmu-item {
+    animation-duration: 12s;
+    animation-delay: -1s;
+}
+
+.danmu-line-15 .danmu-item {
+    animation-duration: 15s;
+    animation-delay: -7s;
+}
+
+.danmu-line-16 .danmu-item {
+    animation-duration: 10s;
+    animation-delay: -3s;
+}
+
+.danmu-line-17 .danmu-item {
+    animation-duration: 13s;
+    animation-delay: -6s;
+}
+
+.danmu-line-18 .danmu-item {
+    animation-duration: 14s;
+    animation-delay: -4s;
+}
+
+.danmu-line-19 .danmu-item {
+    animation-duration: 14s;
+    animation-delay: -2s;
+}
+
+.danmu-line-20 .danmu-item {
+    animation-duration: 14s;
+    animation-delay: -5s;
+}
+
+.danmu-line-21 .danmu-item {
+    animation-duration: 14s;
+    animation-delay: -8s;
+}
+
+.danmu-line-22 .danmu-item {
+    animation-duration: 14s;
+    animation-delay: -3s;
+}
+
+.danmu-line-23 .danmu-item {
+    animation-duration: 14s;
+    animation-delay: -7s;
+}
+
+.danmu-line-24 .danmu-item {
+    animation-duration: 14s;
+    animation-delay: -2s;
+}
+
+.danmu-line-25 .danmu-item {
+    animation-duration: 14s;
+    animation-delay: -3s;
+}
+
+.danmu-line-26 .danmu-item {
+    animation-duration: 14s;
+    animation-delay: -7s;
+}
+
+.danmu-line-27 .danmu-item {
+    animation-duration: 14s;
+    animation-delay: -1s;
+}
+
+.danmu-line-28 .danmu-item {
+    animation-duration: 14s;
+    animation-delay: -4s;
+}
+
+.danmu-line-29 .danmu-item {
+    animation-duration: 14s;
+    animation-delay: -2s;
+}
+
+@keyframes wenzi-width {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;  
+    }
+}
+
+@keyframes wenzi-width-200 {
+    from {
+        width: 0;
+    }
+    to {
+        width: 500px;  
+    }
+}
+
+@keyframes duilian {
+    from {
+        height: 0;
+    }
+    to {
+        height: 565px;  
+    }
+}
+
+@keyframes hl {
+    from {
+        width: 0;
+    }
+    to {
+        width: 220px;  
+    }
+}
+
+.SL, .XL {
+    animation: SLXL 2s steps(90, end) forwards;
+    animation-delay: 3.5s;
+}
+
+@keyframes SLXL {
+    from {
+        height: 0;
+    }
+
+    to {
+        height:100%;
+    }
+}
+
+.HL {
+    animation: HL 1.5s steps(90, end) forwards;
+    animation-delay: 4s;
+}
+
+@keyframes HL {
+    from {
+        width: 0;
+    }
+
+    to {
+        width:100%;
+    }
+}
+
+.sl {
+    outline: 2px solid #ffd700; 
+    outline-offset: -15px; 
+}
+
+.xl {
+    outline: 2px solid #ffd700;
+    outline-offset: -15px;
+}
+
+.hl {
+    outline: 2px solid #ffd700;
+    outline-offset: -10px;
+}
+
+/* ===== 响应式设计代码 ===== */
+/* 让所有图片自适应 */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 针对不同屏幕尺寸的优化 */
+@media screen and (max-width: 768px) {
+    /* 平板和手机通用设置 */
+    body {
+        padding: 10px;
+    }
+    
+    .HL, .SL, .XL {
+        font-size: 24px !important;
+        text-align: center;
+    }
+    
+    .b1, .b2, .b3, .b4, .b5, .b6 {
+        font-size: 16px !important;
+        text-align: center;
+        padding: 5px;
+    }
+    
+    .danmu-item {
+        font-size: 14px !important;
+    }
+    
+    /* 音频播放器宽度自适应 */
+    audio {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* 小屏手机 */
+    .HL, .SL, .XL {
+        font-size: 20px !important;
+    }
+    
+    .b1 {
+        font-size: 18px !important;
+    }
+    
+    .b2, .b3, .b4, .b5, .b6 {
+        font-size: 14px !important;
+    }
+    
+    .danmu-item {
+        font-size: 12px !important;
+        padding: 2px 4px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    /* 大屏幕电脑 */
+    .tp1, .tp2, .tp3 {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    body {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+}
+
+/* 让弹幕容器也自适应 */
+.danmu-stage {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* 辅助类：让文字在小屏幕上不溢出 */
+.hl, .sl, .xl, .b, .a {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
